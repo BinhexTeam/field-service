@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Binhex
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="fsm_person_form_view_subcontracting" model="ir.ui.view">
+        <field name="name">fsm.person.form.subcontracting</field>
+        <field name="model">fsm.person</field>
+        <field name="inherit_id" ref="fieldservice.fsm_person_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_ids']" position="before">
+                <field name="is_subcontractor" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="fsm_person_tree_view_subcontracting" model="ir.ui.view">
+        <field name="name">fsm.person.tree.subcontracting</field>
+        <field name="model">fsm.person</field>
+        <field name="inherit_id" ref="fieldservice.fsm_person_list" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_subcontractor" optional="show" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
